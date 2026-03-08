@@ -1,0 +1,12 @@
+import type { ResidentialCommunity } from '@/types/domain';
+
+export const residentialData: ResidentialCommunity[] = [
+  { id: 'r-001', name: '静安公馆', district: '静安区', address: '南京西路100号', housingType: '商品房', tags: ['地铁沿线'], coordinates: [121.4737, 31.2304] },
+  { id: 'r-002', name: '黄浦花园', district: '黄浦区', address: '人民路188号', housingType: '商品房', tags: ['核心区'], coordinates: [121.4901, 31.2222] },
+  { id: 'r-003', name: '徐汇雅苑', district: '徐汇区', address: '漕溪北路299号', housingType: '公寓', coordinates: [121.4378, 31.1991] },
+  { id: 'r-004', name: '闵行新城', district: '闵行区', address: '沪闵路520号', housingType: '住宅', coordinates: [121.4235, 31.1652] },
+  { id: 'r-005', name: '杨浦家园', district: '杨浦区', address: '控江路88号', housingType: '住宅', coordinates: [121.5332, 31.2668] },
+  { id: 'r-006', name: '普陀锦绣里', district: '普陀区', address: '真光路120号', housingType: '住宅', coordinates: [121.3891, 31.2495] },
+  { id: 'r-007', name: '浦东滨江苑', district: '浦东新区', address: '浦电路600号', housingType: '商品房', coordinates: [121.5855, 31.2098] },
+  { id: 'r-008', name: '松江书香苑', district: '松江区', address: '文汇路366号', housingType: '住宅', coordinates: [121.3619, 31.1131] },
+];

@@ -1,0 +1,8 @@
+[
+  {"id":"p-001","residentialId":"r-001","category":"transport","name":"南京西路地铁站","distanceMeters":320,"address":"地铁2号线"},
+  {"id":"p-002","residentialId":"r-001","category":"hospital","name":"静安区中心医院","distanceMeters":980},
+  {"id":"p-003","residentialId":"r-001","category":"mall","name":"静安嘉里中心","distanceMeters":750},
+  {"id":"p-004","residentialId":"r-003","category":"transport","name":"徐家汇地铁站","distanceMeters":640},
+  {"id":"p-005","residentialId":"r-003","category":"mall","name":"港汇恒隆广场","distanceMeters":820},
+  {"id":"p-006","residentialId":"r-007","category":"hospital","name":"浦东新区人民医院","distanceMeters":1300}
+]
