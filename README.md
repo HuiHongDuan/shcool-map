@@ -1,49 +1,70 @@
-# Shanghai Housing Map Codex Starter Kit
+# 上海住房地图 Web UI（MVP）
 
-这是一套可直接上传给 Codex 的启动文件，目标是让 Codex 根据文档自动开始实现并测试一个“基于上海地图查看住房相关信息”的 Web UI 应用。
+基于 **Next.js + TypeScript + MapLibre GL JS** 的上海住房信息地图应用。
 
-## 文件说明
+## 当前实现状态
 
-- `AGENTS.md`：给 Codex/代码代理的执行指令与边界条件。
-- `PRD.md`：产品需求说明。
-- `ARCHITECTURE.md`：推荐技术架构与数据流。
-- `IMPLEMENTATION_PLAN.md`：分阶段开发计划。
-- `ACCEPTANCE_CRITERIA.md`：验收标准。
-- `DATA_SOURCE_POLICY.md`：地图与学区/公共资源数据的来源策略与合规约束。
-- `package.json`：前端/后端一体化开发依赖与脚本定义。
-- `.env.example`：环境变量模板。
-- `docker-compose.yml`：本地 PostGIS 开发环境。
-- `.nvmrc`：Node 版本约束。
+- ✅ 上海地图初始化（可平移/缩放）
+- ✅ 住宅点位显示 + 聚合（MapLibre cluster）
+- ✅ 行政区住宅统计
+- ✅ 搜索（住宅名/地址关键词）
+- ✅ 住宅详情侧栏（基础信息 + 学区 + 周边资源）
+- ✅ Provider 抽象（map/housing/school-district/poi）
+- ✅ API 路由（住宅列表、详情、学区、周边）
+- ✅ 单元测试、组件测试、Playwright E2E（3条）
 
-## 建议你上传给 Codex 的最小文件集
+## 技术栈
 
-至少上传：
+- Frontend: Next.js 15 / React 19 / TypeScript
+- Map: MapLibre GL JS
+- Geo: Supercluster
+- Style: Tailwind CSS
+- Test: Vitest + React Testing Library + Playwright
 
-1. `AGENTS.md`
-2. `PRD.md`
-3. `ARCHITECTURE.md`
-4. `IMPLEMENTATION_PLAN.md`
-5. `ACCEPTANCE_CRITERIA.md`
-6. `DATA_SOURCE_POLICY.md`
-7. `package.json`
-8. `.env.example`
-9. `docker-compose.yml`
-10. `.nvmrc`
+## 项目结构
 
-## 建议项目目标
+- `app/`：页面与 API Route Handlers
+- `src/components/`：地图与详情组件
+- `src/lib/providers/`：数据 provider 实现
+- `src/lib/services/container.ts`：provider 注入容器
+- `src/data/mock/`：演示数据（住宅/学区/POI）
+- `tests/unit`、`tests/components`、`tests/e2e`：测试
 
-让 Codex 生成一个 MVP：
+## 快速开始
 
-- 以上海底图为基础；
-- 支持缩放、拖拽、住宅点位高亮；
-- 支持点聚合与按行政区统计；
-- 点击住宅后展示学区信息与周边公共资源；
-- 提供基础自动化测试；
-- 在缺失正式住宅数据时，支持导入 GeoJSON/CSV 假数据先完成 UI 与交互闭环。
+```bash
+npm install
+npm run dev
+```
 
-## 建议执行顺序
+访问 `http://localhost:3000`
 
-1. 先完成地图 UI、图层、聚合、侧边栏；
-2. 再接入住宅与 POI 数据；
-3. 再接入学区数据抓取/导入流程；
-4. 最后补全 E2E 测试与性能优化。
+## 环境变量
+
+复制 `.env.example` 并按需调整：
+
+- `NEXT_PUBLIC_MAP_STYLE_URL`：底图样式 URL（默认公开 MapLibre demo）
+- `DATA_PROVIDER_MODE`：`mock | file | db`（当前默认 `mock`）
+- `RESIDENTIAL_DATA_PATH` / `SCHOOL_DISTRICT_DATA_PATH` / `NEARBY_RESOURCES_DATA_PATH`：本地数据路径
+- `DATABASE_URL`：后续切换 PostGIS 时使用
+
+## 运行测试
+
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run test:e2e
+```
+
+## 数据来源说明（MVP）
+
+- 住宅、学区、POI 均为 **mock/人工整理演示数据**。
+- 学区 provider 已做接口抽象，后续可替换为 crawler/file/db 实现。
+- 未接入任何需要登录、验证码或条款受限的数据抓取。
+
+## 后续替换点
+
+1. 在 `src/lib/providers/` 新增真实 provider（如 PostGIS、公开 API）。
+2. 在 `src/lib/services/container.ts` 切换 provider 注入。
+3. 保持 API 与 UI 不变，降低重构成本。

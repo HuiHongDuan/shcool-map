@@ -1,0 +1,13 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {"type":"Feature","properties":{"name":"黄浦区","code":"310101"},"geometry":null},
+    {"type":"Feature","properties":{"name":"徐汇区","code":"310104"},"geometry":null},
+    {"type":"Feature","properties":{"name":"静安区","code":"310106"},"geometry":null},
+    {"type":"Feature","properties":{"name":"普陀区","code":"310107"},"geometry":null},
+    {"type":"Feature","properties":{"name":"杨浦区","code":"310110"},"geometry":null},
+    {"type":"Feature","properties":{"name":"闵行区","code":"310112"},"geometry":null},
+    {"type":"Feature","properties":{"name":"松江区","code":"310117"},"geometry":null},
+    {"type":"Feature","properties":{"name":"浦东新区","code":"310115"},"geometry":null}
+  ]
+}

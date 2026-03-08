@@ -1,0 +1,26 @@
+[
+  {
+    "residentialId": "r-001",
+    "schoolDistrictName": "静安中心学区",
+    "primarySchools": ["静安一小", "静安实验小学"],
+    "middleSchools": ["静安中学"],
+    "source": "manual-import",
+    "updatedAt": "2026-01-15"
+  },
+  {
+    "residentialId": "r-003",
+    "schoolDistrictName": "徐汇西片学区",
+    "primarySchools": ["徐汇区第一小学"],
+    "middleSchools": ["徐汇中学"],
+    "source": "mock",
+    "updatedAt": "2026-01-10"
+  },
+  {
+    "residentialId": "r-007",
+    "schoolDistrictName": "浦东滨江学区",
+    "primarySchools": ["浦东滨江小学"],
+    "middleSchools": ["浦东实验中学"],
+    "source": "mock",
+    "updatedAt": "2026-01-08"
+  }
+]
